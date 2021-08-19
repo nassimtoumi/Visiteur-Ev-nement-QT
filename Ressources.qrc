@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/qss">
+        <file>Combinear.qss</file>
+        <file>Integrid.qss</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>download.png</file>
+        <file>dossier.png</file>
+        <file>download-icon.png</file>
+        <file>home-icon.png</file>
+        <file>view-refresh-4.png</file>
+        <file>LOGOSONEDE.png</file>
+    </qresource>
+</RCC>
