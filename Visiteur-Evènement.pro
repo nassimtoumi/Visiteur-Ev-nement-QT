@@ -18,17 +18,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     connection.cpp \
     main.cpp \
-    mainwindow.cpp \
-    user.cpp
+    mainwindow.cpp
 
 HEADERS += \
     connection.h \
-    mainwindow.h \
-    user.h
+    mainwindow.h
 
 FORMS += \
-    mainwindow.ui \
-    user.ui
+    mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -38,4 +35,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RESOURCES += \
     Ressources.qrc
 
-DISTFILES +=
+DISTFILES += \
+    img/evenements2 (2).png

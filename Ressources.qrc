@@ -4,11 +4,8 @@
         <file>Integrid.qss</file>
     </qresource>
     <qresource prefix="/">
-        <file>download.png</file>
-        <file>dossier.png</file>
-        <file>download-icon.png</file>
-        <file>home-icon.png</file>
-        <file>view-refresh-4.png</file>
-        <file>LOGOSONEDE.png</file>
+        <file>img/bUTT evenement.png</file>
+        <file>img/VISITEURBUUT.png</file>
+        <file>img/HOMEBUUT.png</file>
     </qresource>
 </RCC>
