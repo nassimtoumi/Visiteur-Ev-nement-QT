@@ -168,13 +168,13 @@ void MainWindow::on_pushButton_16_clicked()
 
     }
 }
-
+// refrech
 void MainWindow::on_pushButton_11_clicked()
 {
    //Visiteur V;
     ui->tableView->setModel(V.afficher());
 }
-
+// recherche
 void MainWindow::on_lineEdit_returnPressed()
 {
     if(ui->lineEdit->text()!="")
@@ -184,4 +184,62 @@ void MainWindow::on_lineEdit_returnPressed()
     }
     else
         ui->tableView->setModel(V.afficher());
+}
+//supprimer
+void MainWindow::on_pushButton_19_clicked()
+{
+    if(ui->tableView->currentIndex().row()==-1)
+        QMessageBox::information(nullptr, QObject::tr("Suppression"),
+                                 QObject::tr("Veuillez Choisir un(e) visiteur(e) du Tableau.\n"
+                                             "Click Ok to exit."), QMessageBox::Ok);
+    else
+    {   int id=ui->tableView->model()->data(ui->tableView->model()->index(ui->tableView->currentIndex().row(),0)).toInt();
+        //Promotion p(ui->afficher_promo->model()->data(ui->afficher_promo->model()->index(ui->afficher_promo->currentIndex().row(),0)).toString(),ui->afficher_promo->model()->data(ui->afficher_promo->model()->index(ui->afficher_promo->currentIndex().row(),1)).toString(),ui->afficher_promo->model()->data(ui->afficher_promo->model()->index(ui->afficher_promo->currentIndex().row(),2)).toInt(),ui->afficher_promo->model()->data(ui->afficher_promo->model()->index(ui->afficher_promo->currentIndex().row(),3)).toDate(),ui->afficher_promo->model()->data(ui->afficher_promo->model()->index(ui->afficher_promo->currentIndex().row(),4)).toString());
+
+
+
+        QString str = " Vous voulez vraiment supprimer \n le Visiteur :";
+        int ret = QMessageBox::question(this, tr("Visiteur"),str,QMessageBox::Ok|QMessageBox::Cancel);
+
+        switch (ret) {
+        case QMessageBox::Ok:
+            if (V.supprimer(id)){
+                N.notification_supprimerVisiteur();
+                //musicAdd->setMedia(QUrl("C:/Users/Lenovo/Desktop/onsss/ONS/sound/supp succ.mp3"));
+
+                 //musicAdd->play();
+                //refresh_mortadha();
+
+                QMessageBox::information(0, qApp->tr("Suppression"),
+
+                                         qApp->tr("Visiteur suprimée"), QMessageBox::Ok);
+
+            }
+            else
+            {
+
+                QMessageBox::critical(0, qApp->tr("Suppression"),
+                                      qApp->tr("Visiteur non trouvé "), QMessageBox::Ok);
+            }
+
+
+
+            break;
+        case QMessageBox::Cancel:
+
+            break;
+        default:
+            // should never be reached
+            break;
+        }
+
+
+    }
+ui->tableView->setModel(V.afficher());
+}
+
+//Modifier
+void MainWindow::on_pushButton_18_clicked()
+{
+
 }

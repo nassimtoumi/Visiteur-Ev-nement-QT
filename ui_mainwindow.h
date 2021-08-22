@@ -236,7 +236,7 @@ public:
         comboBox->setGeometry(QRect(420, 21, 180, 22));
         tableView = new QTableView(page_6);
         tableView->setObjectName(QStringLiteral("tableView"));
-        tableView->setGeometry(QRect(60, 61, 951, 251));
+        tableView->setGeometry(QRect(60, 61, 921, 251));
         pushButton_18 = new QPushButton(page_6);
         pushButton_18->setObjectName(QStringLiteral("pushButton_18"));
         pushButton_18->setGeometry(QRect(360, 371, 91, 31));

@@ -85,7 +85,31 @@ QSqlQueryModel *Visiteur::displayClause(QString cls)
     model->setHeaderData(8, Qt::Horizontal, QObject::tr("ID_E"));
     return model;
 }
+bool Visiteur::supprimer(int idd)
+{
+QSqlQuery query;
+QString res= QString::number(idd);
+query.prepare("Delete from VISITEUR where ID = :id ");
+query.bindValue(":id", res);
+return    query.exec();
+}
 
+bool Visiteur::modifier()
+{   QSqlQuery query;
+    query.prepare( "UPDATE VISITEUR SET DATEVISITEUR:=date,NOM=:nom,PRENOM=:prenom,EMAIL=:email,TEL=:tel,AGE=:age,SEXE=:sexe,ID_E=:id_e WHERE ID=:id");
+    query.bindValue(":id_e", id_e);
+    query.bindValue(":age", age);
+    query.bindValue(":nom", nom);
+    query.bindValue(":prenom", prenom);
+    query.bindValue(":email", email);
+    query.bindValue(":sexe", sexe);
+    query.bindValue(":tel", tel);
+    query.bindValue(":date", datee);
+
+
+
+ return query.exec();
+}
 
 
 

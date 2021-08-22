@@ -24,7 +24,7 @@ void Notification::notification_ajoutPublicite()
     notifyIcon->show();
     notifyIcon->showMessage("Gestion des Publicites ","Nouvelle Publicite ajoutée ",QSystemTrayIcon::Information,15000);
 }
-void Notification::notification_supprimerPromotion(){
+void Notification::notification_supprimerVisiteur(){
     QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
 
    // notifyIcon->setIcon(QIcon(":/new/prefix1/MyResources/computer-icons-avatar-user-login-avatar.jpg"));

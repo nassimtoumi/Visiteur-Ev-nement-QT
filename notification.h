@@ -9,7 +9,7 @@ public:
     Notification();
     void notification_ajoutVisiteur();
     void notification_ajoutPublicite();
-    void notification_supprimerPromotion();
+    void notification_supprimerVisiteur();
     void notification_supprimerPublicite();
     void notification_modifierPromotion();
     void notification_modifierPublicite();
