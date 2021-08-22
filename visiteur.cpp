@@ -12,9 +12,9 @@ sexe="";
 tel="";
 
 }
-Visiteur::Visiteur(QString nom,QString prenom,QString email,QString sexe,QString tel,int age,int id_e,QDate datee)
+Visiteur::Visiteur(int id,QString nom,QString prenom,QString email,QString sexe,QString tel,int age,int id_e,QDate datee)
 {
-  //this->id=id;
+  this->id=id;
   this->id_e=id_e;
   this->age=age;
   this->nom=nom;
@@ -33,6 +33,16 @@ int Visiteur::get_id(){return id;}
 int Visiteur::get_id_e(){return id_e;}
 int Visiteur::get_age(){return age;}
 QDate Visiteur::get_date(){return  datee;}
+
+
+void Visiteur::set_nom(QString nom){this->nom=nom;}
+void Visiteur::set_prenom(QString prenom){this->prenom=prenom;}
+void Visiteur::set_email(QString email){this->email=email;}
+void Visiteur::set_sexe(QString sexe){this->sexe=sexe;}
+void Visiteur::set_tel(QString tel){this->tel=tel;}
+void Visiteur::set_age(int age){this->age=age;}
+void Visiteur::set_idE(int ide){this->id_e=ide;}
+
 
 bool Visiteur::ajouter()
 {
@@ -96,7 +106,8 @@ return    query.exec();
 
 bool Visiteur::modifier()
 {   QSqlQuery query;
-    query.prepare( "UPDATE VISITEUR SET DATEVISITEUR:=date,NOM=:nom,PRENOM=:prenom,EMAIL=:email,TEL=:tel,AGE=:age,SEXE=:sexe,ID_E=:id_e WHERE ID=:id");
+    query.prepare( "UPDATE VISITEUR SET ID=:id,DATEVISITEUR=:date,NOM=:nom,PRENOM=:prenom,EMAIL=:email,TEL=:tel,AGE=:age,SEXE=:sexe,ID_E=:id_e WHERE ID=:id;");
+    query.bindValue(":id", id);
     query.bindValue(":id_e", id_e);
     query.bindValue(":age", age);
     query.bindValue(":nom", nom);

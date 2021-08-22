@@ -70,7 +70,7 @@ void MainWindow::on_pushButton_16_clicked()
     //qDebug() << mailREX.exactMatch(email);
     ////////////
 
-    Visiteur newV (nom,prenom,email,sexe,tel,age,id_e,datee);
+    Visiteur newV (0,nom,prenom,email,sexe,tel,age,id_e,datee);
 
     if (ui->lineEdit_nom->text().isEmpty())
     {
@@ -241,5 +241,84 @@ ui->tableView->setModel(V.afficher());
 //Modifier
 void MainWindow::on_pushButton_18_clicked()
 {
+    Visiteur test(
+                  ui->tableView->model()->data(ui->tableView->model()->index(ui->tableView->currentIndex().row(),0)).toInt(),
+                  ui->tableView->model()->data(ui->tableView->model()->index(ui->tableView->currentIndex().row(),2)).toString(),
+                  ui->tableView->model()->data(ui->tableView->model()->index(ui->tableView->currentIndex().row(),3)).toString(),
+                  ui->tableView->model()->data(ui->tableView->model()->index(ui->tableView->currentIndex().row(),4)).toString(),
+                  ui->tableView->model()->data(ui->tableView->model()->index(ui->tableView->currentIndex().row(),5)).toString(),
+                  ui->tableView->model()->data(ui->tableView->model()->index(ui->tableView->currentIndex().row(),6)).toString(),
+                  ui->tableView->model()->data(ui->tableView->model()->index(ui->tableView->currentIndex().row(),7)).toInt(),
+                  ui->tableView->model()->data(ui->tableView->model()->index(ui->tableView->currentIndex().row(),8)).toInt(),
+                ui->tableView->model()->data(ui->tableView->model()->index(ui->tableView->currentIndex().row(),1)).toDate()
+     );
+    bool ok;
+    switch (ui->tableView->currentIndex().column()) {
+    case 2 :
+        test.set_nom(ui->lineEdit_2->text());
+        ok=test.modifier();
+    break;
+    case 3 :
+        test.set_prenom(ui->lineEdit_2->text());
+        ok=test.modifier();
+    break;
+    case 4 :
+        test.set_email(ui->lineEdit_2->text());
+        ok=test.modifier();
+    break;
+    case 5 :
+        test.set_tel(ui->lineEdit_2->text());
+        ok=test.modifier();
+    break;
+    case 6 :
+        test.set_age(ui->lineEdit_2->text().toInt());
+        ok=test.modifier();
+    break;
+    case 7 :
+        test.set_sexe(ui->lineEdit_2->text());
+        ok=test.modifier();
+    break;
+    case 8 :
+        test.set_idE(ui->lineEdit_2->text().toInt());
+        ok=test.modifier();
+    break;
+    default:
+        ok=false;
+        break;
+    }
+    if(ok)
+    {
+        //QMessageBox::information(this," Modifier "," Votre Publicite est modifiée") ;
+        QMessageBox::information(0, qApp->tr("Modification"),
 
+                                 qApp->tr("Visiteur Modifiée"), QMessageBox::Cancel);
+
+
+       // N.notification_modifierPublicite();
+      //  musicAdd->setMedia(QUrl("C:/sound/modif succ.mp3"));
+
+        // musicAdd->play();
+       // refresh_mortadha();
+
+
+    }
+    else
+    {
+        QMessageBox::critical(nullptr, QObject::tr("modifier Visiteur"),
+                              QObject::tr("Erreur !.\n"
+                                          "Click Cancel to exit."), QMessageBox::Cancel);
+    }
+
+    ui->lineEdit_2->clear();
+    ui->tableView->setModel(V.afficher());
+
+}
+
+void MainWindow::on_tableView_clicked(const QModelIndex &index)
+{
+    QString arr[9]={"interdit","interdit","Nom","Prenom","Email","Tel","Age","Sexe","ID Evenement"};
+    ui->label_11->setText("Modifier "+arr[index.column()]);
+    if (index.column()!=0 && index.column()!=1 ) ui->lineEdit_2->setText(index.data().toString());
+    else
+        ui->lineEdit_2->setText("...");
 }

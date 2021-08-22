@@ -9,7 +9,7 @@ class Visiteur
 {
 public:
     Visiteur();
-    Visiteur(QString,QString,QString,QString,QString,int,int,QDate);
+    Visiteur(int,QString,QString,QString,QString,QString,int,int,QDate);
     QString get_nom();
     QString get_prenom();
     QString get_email();
@@ -19,6 +19,13 @@ public:
     int get_id_e();
     int get_age();
     QDate get_date();
+    void set_nom(QString);
+    void set_prenom(QString);
+    void set_email(QString);
+    void set_sexe(QString);
+    void set_tel(QString);
+    void set_age(int);
+    void set_idE(int);
 
     bool ajouter();
     QSqlQueryModel * afficher();
