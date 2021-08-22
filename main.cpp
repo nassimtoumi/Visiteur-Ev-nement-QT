@@ -15,13 +15,16 @@ int main(int argc, char *argv[])
         //setup stylesheet
         a.setStyleSheet(styleSheet);
 
-    MainWindow w;
+
     connection c;
 
 
     bool test=c.createconnect();
+    MainWindow w;
     if(test)
-    {w.show();
+    {
+
+        w.show();
         QMessageBox::information(nullptr, QObject::tr("database is open"),
                     QObject::tr("connection successful."), QMessageBox::Ok);
 

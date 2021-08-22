@@ -1,6 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+#include"notification.h"
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -23,7 +23,14 @@ private slots:
 
     void on_pushButton_14_clicked();
 
+    void on_pushButton_16_clicked();
+
+    void on_pushButton_11_clicked();
+
+    void on_lineEdit_returnPressed();
+
 private:
     Ui::MainWindow *ui;
+   // Notification N;
 };
 #endif // MAINWINDOW_H
