@@ -93,7 +93,6 @@ public:
     QPushButton *pushButton_15;
     QTabWidget *tabWidget_2;
     QWidget *tab_3;
-    QLineEdit *lineEdit_dateev;
     QLineEdit *lineEdit_rev;
     QLineEdit *lineEdit_cap;
     QLineEdit *lineEdit_lieu;
@@ -320,9 +319,6 @@ public:
         tabWidget_2->setGeometry(QRect(0, 20, 1081, 451));
         tab_3 = new QWidget();
         tab_3->setObjectName(QStringLiteral("tab_3"));
-        lineEdit_dateev = new QLineEdit(tab_3);
-        lineEdit_dateev->setObjectName(QStringLiteral("lineEdit_dateev"));
-        lineEdit_dateev->setGeometry(QRect(200, 60, 291, 41));
         lineEdit_rev = new QLineEdit(tab_3);
         lineEdit_rev->setObjectName(QStringLiteral("lineEdit_rev"));
         lineEdit_rev->setGeometry(QRect(200, 240, 291, 41));
@@ -337,7 +333,7 @@ public:
         lineEdit_orga->setGeometry(QRect(200, 180, 291, 41));
         lineEdit_prix = new QLineEdit(tab_3);
         lineEdit_prix->setObjectName(QStringLiteral("lineEdit_prix"));
-        lineEdit_prix->setGeometry(QRect(200, 120, 231, 41));
+        lineEdit_prix->setGeometry(QRect(200, 120, 241, 41));
         label_12 = new QLabel(tab_3);
         label_12->setObjectName(QStringLiteral("label_12"));
         label_12->setGeometry(QRect(80, 70, 121, 21));
@@ -364,7 +360,7 @@ public:
         label_32->setGeometry(QRect(450, 130, 47, 20));
         dateTimeEdit = new QDateTimeEdit(tab_3);
         dateTimeEdit->setObjectName(QStringLiteral("dateTimeEdit"));
-        dateTimeEdit->setGeometry(QRect(220, 20, 194, 22));
+        dateTimeEdit->setGeometry(QRect(200, 60, 291, 41));
         tabWidget_2->addTab(tab_3, QString());
         tab_4 = new QWidget();
         tab_4->setObjectName(QStringLiteral("tab_4"));
@@ -498,7 +494,7 @@ public:
         stackedWidget->setCurrentIndex(2);
         tabWidget->setCurrentIndex(0);
         stackedWidget_2->setCurrentIndex(0);
-        tabWidget_2->setCurrentIndex(0);
+        tabWidget_2->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

@@ -31,12 +31,12 @@ void Notification::notification_supprimerVisiteur(){
     notifyIcon->show();
     notifyIcon->showMessage("Gestion des Visiteurs ","Visiteur Supprimée",QSystemTrayIcon::Information,15000);
 }
-void Notification::notification_supprimerPublicite(){
+void Notification::notification_supprimerEvenement(){
     QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
 
    // notifyIcon->setIcon(QIcon(":/new/prefix1/MyResources/computer-icons-avatar-user-login-avatar.jpg"));
     notifyIcon->show();
-    notifyIcon->showMessage("Gestion des Visiteurs ","Un visiteur est supprimée",QSystemTrayIcon::Information,15000);
+    notifyIcon->showMessage("Gestion des Evenements ","Un Evenement est supprimée",QSystemTrayIcon::Information,15000);
 
 }
 void Notification::notification_modifierVisiteur(){
@@ -52,7 +52,7 @@ void Notification::notification_modifierEvenement(){
 
    // notifyIcon->setIcon(QIcon(":/new/prefix1/MyResources/computer-icons-avatar-user-login-avatar.jpg"));
     notifyIcon->show();
-    notifyIcon->showMessage("Gestion des Visiteur ","Un Visiteur est modifiée",QSystemTrayIcon::Information,15000);
+    notifyIcon->showMessage("Gestion des Evenements ","Un Evenement est modifiée",QSystemTrayIcon::Information,15000);
 
 }
 void Notification::mail_Publicite(){

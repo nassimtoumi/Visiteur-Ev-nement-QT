@@ -43,6 +43,12 @@ private slots:
 
 
 
+    void on_pushButton_32_clicked();
+
+    void on_pushButton_30_clicked();
+
+    void on_lineEdit_6_returnPressed();
+
 private:
     Ui::MainWindow *ui;
    // Notification N;

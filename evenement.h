@@ -24,6 +24,7 @@ public:
     void set_rev(int);
     void set_cap(int);
     void set_id(int);
+     void set_date(QDateTime);
 
     bool ajouter();
     QSqlQueryModel * afficher();

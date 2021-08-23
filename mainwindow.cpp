@@ -439,3 +439,138 @@ void MainWindow::on_pushButton_22_clicked()
 
 
 
+
+void MainWindow::on_pushButton_32_clicked()
+{
+    Evenement test(
+                  ui->tableView_1->model()->data(ui->tableView_1->model()->index(ui->tableView_1->currentIndex().row(),0)).toInt(),
+                  ui->tableView_1->model()->data(ui->tableView_1->model()->index(ui->tableView_1->currentIndex().row(),1)).toDateTime(),
+                  ui->tableView_1->model()->data(ui->tableView_1->model()->index(ui->tableView_1->currentIndex().row(),2)).toInt(),
+                  ui->tableView_1->model()->data(ui->tableView_1->model()->index(ui->tableView_1->currentIndex().row(),3)).toString(),
+                  ui->tableView_1->model()->data(ui->tableView_1->model()->index(ui->tableView_1->currentIndex().row(),4)).toInt(),
+                  ui->tableView_1->model()->data(ui->tableView_1->model()->index(ui->tableView_1->currentIndex().row(),5)).toInt(),
+                  ui->tableView_1->model()->data(ui->tableView_1->model()->index(ui->tableView_1->currentIndex().row(),6)).toString()
+
+
+     );
+    bool ok;
+    switch (ui->tableView_1->currentIndex().column()) {
+    case 2 :
+        test.set_prix(ui->lineEdit_5->text().toInt());
+        ok=test.modifier();
+    break;
+    case 3 :
+        test.set_orga(ui->lineEdit_5->text());
+        ok=test.modifier();
+    break;
+    case 4 :
+        test.set_rev(ui->lineEdit_5->text().toInt());
+        ok=test.modifier();
+    break;
+    case 5 :
+        test.set_cap(ui->lineEdit_5->text().toInt());
+        ok=test.modifier();
+    break;
+    case 7 :
+        test.set_cap(ui->lineEdit_5->text().toInt());
+        ok=test.modifier();
+    break;
+    case 8 :
+        test.set_lieu(ui->lineEdit_5->text());
+        ok=test.modifier();
+    break;
+    default:
+        ok=false;
+        break;
+    }
+    if(ok)
+    {
+        //QMessageBox::information(this," Modifier "," Votre Publicite est modifiée") ;
+        QMessageBox::information(0, qApp->tr("Modification"),
+
+                                 qApp->tr("Visiteur Modifiée"), QMessageBox::Ok);
+
+
+       N.notification_modifierEvenement();
+      //  musicAdd->setMedia(QUrl("C:/sound/modif succ.mp3"));
+
+        // musicAdd->play();
+       // refresh_mortadha();
+
+
+    }
+    else
+    {
+        QMessageBox::critical(nullptr, QObject::tr("modifier Visiteur"),
+                              QObject::tr("Erreur !.\n"
+                                          "Click Ok to exit."), QMessageBox::Ok);
+    }
+
+    ui->lineEdit_5->clear();
+    ui->tableView_1->setModel(E.afficher());
+
+}
+//supprimer evenement
+void MainWindow::on_pushButton_30_clicked()
+{
+    if(ui->tableView_1->currentIndex().row()==-1)
+        QMessageBox::information(nullptr, QObject::tr("Suppression"),
+                                 QObject::tr("Veuillez Choisir un(e) visiteur(e) du Tableau.\n"
+                                             "Click Ok to exit."), QMessageBox::Ok);
+    else
+    {   int id=ui->tableView_1->model()->data(ui->tableView_1->model()->index(ui->tableView_1->currentIndex().row(),0)).toInt();
+        //Promotion p(ui->afficher_promo->model()->data(ui->afficher_promo->model()->index(ui->afficher_promo->currentIndex().row(),0)).toString(),ui->afficher_promo->model()->data(ui->afficher_promo->model()->index(ui->afficher_promo->currentIndex().row(),1)).toString(),ui->afficher_promo->model()->data(ui->afficher_promo->model()->index(ui->afficher_promo->currentIndex().row(),2)).toInt(),ui->afficher_promo->model()->data(ui->afficher_promo->model()->index(ui->afficher_promo->currentIndex().row(),3)).toDate(),ui->afficher_promo->model()->data(ui->afficher_promo->model()->index(ui->afficher_promo->currentIndex().row(),4)).toString());
+
+
+
+        QString str = " Vous voulez vraiment supprimer \n le Visiteur :";
+        int ret = QMessageBox::question(this, tr("Visiteur"),str,QMessageBox::Ok|QMessageBox::Cancel);
+
+        switch (ret) {
+        case QMessageBox::Ok:
+            if (E.supprimer(id)){
+                N.notification_supprimerEvenement();
+                //musicAdd->setMedia(QUrl("C:/Users/Lenovo/Desktop/onsss/ONS/sound/supp succ.mp3"));
+
+                 //musicAdd->play();
+                //refresh_mortadha();
+
+                QMessageBox::information(0, qApp->tr("Suppression"),
+
+                                         qApp->tr("Visiteur suprimée"), QMessageBox::Ok);
+
+            }
+            else
+            {
+
+                QMessageBox::critical(0, qApp->tr("Suppression"),
+                                      qApp->tr("Visiteur non trouvé "), QMessageBox::Ok);
+            }
+
+
+
+            break;
+        case QMessageBox::Cancel:
+
+            break;
+        default:
+            // should never be reached
+            break;
+        }
+
+
+    }
+ui->tableView_1->setModel(E.afficher());
+
+}
+//recherche Evenement
+void MainWindow::on_lineEdit_6_returnPressed()
+{
+    if(ui->lineEdit_6->text()!="")
+    {        //QString b=ui->comboBox_recherche_Publicite_2->currentText();
+        QString a=ui->lineEdit_6->text();
+        ui->tableView_1->setModel(E.displayClause("WHERE (ID LIKE '%"+a+"%' OR DATEEVENEMENT LIKE '%"+a+"%' OR PRIX LIKE '%"+a+"%' OR ORGANISATEUR LIKE '%"+a+"%' OR REVAPP LIKE '%"+a+"%' OR CAP LIKE '%"+a+"%' OR LIEU LIKE '%"+a+"%') "));
+    }
+    else
+        ui->tableView_1->setModel(E.afficher());
+}
