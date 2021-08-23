@@ -3,11 +3,13 @@
 #include <QMessageBox>
 #include <QString>
 #include "visiteur.h"
+#include "evenement.h"
 #include <QDate>
 #include <QDebug>
 #include"notification.h"
 Notification N;
 Visiteur V;
+Evenement E ;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -15,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->tableView->setModel(V.afficher());
+    ui->tableView_1->setModel(E.afficher());
 }
 
 MainWindow::~MainWindow()
@@ -162,7 +165,7 @@ void MainWindow::on_pushButton_16_clicked()
 
         }
         else
-            QMessageBox::critical(nullptr, QObject::tr("Ajouter une Promotion"),
+            QMessageBox::critical(nullptr, QObject::tr("Ajouter un visiteur"),
                                   QObject::tr("Erreur !.\n"
                                               "Click Ok to exit."), QMessageBox::Ok);
 
@@ -173,6 +176,7 @@ void MainWindow::on_pushButton_11_clicked()
 {
    //Visiteur V;
     ui->tableView->setModel(V.afficher());
+    ui->tableView_1->setModel(E.afficher());
 }
 // recherche
 void MainWindow::on_lineEdit_returnPressed()
@@ -291,10 +295,10 @@ void MainWindow::on_pushButton_18_clicked()
         //QMessageBox::information(this," Modifier "," Votre Publicite est modifiée") ;
         QMessageBox::information(0, qApp->tr("Modification"),
 
-                                 qApp->tr("Visiteur Modifiée"), QMessageBox::Cancel);
+                                 qApp->tr("Visiteur Modifiée"), QMessageBox::Ok);
 
 
-       // N.notification_modifierPublicite();
+       N.notification_modifierVisiteur();
       //  musicAdd->setMedia(QUrl("C:/sound/modif succ.mp3"));
 
         // musicAdd->play();
@@ -306,7 +310,7 @@ void MainWindow::on_pushButton_18_clicked()
     {
         QMessageBox::critical(nullptr, QObject::tr("modifier Visiteur"),
                               QObject::tr("Erreur !.\n"
-                                          "Click Cancel to exit."), QMessageBox::Cancel);
+                                          "Click Ok to exit."), QMessageBox::Ok);
     }
 
     ui->lineEdit_2->clear();
@@ -322,3 +326,116 @@ void MainWindow::on_tableView_clicked(const QModelIndex &index)
     else
         ui->lineEdit_2->setText("...");
 }
+
+void MainWindow::on_tableView_1_clicked(const QModelIndex &index)
+{
+    QString arr[7]={"interdit","Prix","Organisateur","Relevé Approximative","Capacité","Lieu"};
+    ui->label_30->setText("Modifier "+arr[index.column()]);
+    if (index.column()!=0) ui->lineEdit_5->setText(index.data().toString());
+    else
+        ui->lineEdit_5->setText("...");
+}
+
+void MainWindow::on_pushButton_22_clicked()
+{
+    QString lieu= ui->lineEdit_lieu->text();
+    QString orga= ui->lineEdit_orga->text();
+    int prix= ui->lineEdit_prix->text().toInt();
+    int rev= ui->lineEdit_prix->text().toInt();
+    int cap= ui->lineEdit_cap->text().toInt();
+    //QDate datee=QDate::currentDate();
+    QDateTime datee=ui->dateTimeEdit->dateTime();
+
+    ///////////////////////
+    /// \brief newV
+    /// \return
+    ///
+   // QRegExp mailREX("\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}\\b");
+   // mailREX.setCaseSensitivity(Qt::CaseInsensitive);
+   // mailREX.setPatternSyntax(QRegExp::RegExp);
+    //qDebug() << mailREX.exactMatch(email);
+    ////////////
+
+    Evenement newE (0,datee,prix,orga,rev,cap,lieu);
+
+    if (ui->lineEdit_prix->text().isEmpty())
+    {
+
+        QMessageBox::information(this," ERREUR "," VEUILLEZ VERIFIER CHAMP PRIX !!!!") ;
+
+        QMessageBox::critical(0, qApp->tr("Ajout"),
+
+                              qApp->tr("Probleme d'ajout"), QMessageBox::Cancel);
+
+
+    }
+
+    else if (ui->lineEdit_orga->text().isEmpty())
+    {
+
+        QMessageBox::information(this," ERREUR "," VEUILLEZ VERIFIER CHAMP ORGANISATEUR!!!!") ;
+        QMessageBox::critical(0, qApp->tr("Ajout"),
+
+                              qApp->tr("Probleme d'ajout"), QMessageBox::Ok);
+
+    }
+    else if (ui->lineEdit_rev->text().isEmpty())
+    {
+
+        QMessageBox::information(this," ERREUR "," VEUILLEZ VERIFIER CHAMP RELEVER APPROXIMATIVE!!!!") ;
+        QMessageBox::critical(0, qApp->tr("Ajout"),
+
+                              qApp->tr("Probleme d'ajout"), QMessageBox::Cancel);
+
+    }
+    else if (ui->lineEdit_cap->text().isEmpty())
+    {
+
+        QMessageBox::information(this," ERREUR "," VEUILLEZ VERIFIER CHAMP CAPACITE!!!!") ;
+        QMessageBox::critical(0, qApp->tr("Ajout"),
+
+                              qApp->tr("Probleme d'ajout"), QMessageBox::Cancel);
+
+    }
+
+
+    else if (ui->lineEdit_lieu->text().isEmpty())
+    {
+
+        QMessageBox::information(this," ERREUR "," VEUILLEZ VERIFIER CHAMP LIEU!!!!") ;
+        QMessageBox::critical(0, qApp->tr("Ajout"),
+
+                              qApp->tr("Probleme d'ajout"), QMessageBox::Cancel);
+
+    }
+
+
+    else{
+        bool test=newE.ajouter();
+        if(test)
+        {
+
+           // refresh_mortadha();
+            //musicAdd->setMedia(QUrl("C:/sound/ajout succe.mp3"));
+
+             //musicAdd->play();
+            //N.notification_ajoutVisiteur();
+            N.notification_ajoutEvenement();
+
+            QMessageBox::information(nullptr, QObject::tr("Ajouter un Evenement"),
+                                     QObject::tr("Visiteur ajouté(e).\n"
+                                                 "Click Ok to exit."), QMessageBox::Ok);
+
+        }
+        else
+            QMessageBox::critical(nullptr, QObject::tr("Ajouter un Evenement"),
+                                  QObject::tr("Erreur !.\n"
+                                              "Click Ok to exit."), QMessageBox::Ok);
+
+    }
+
+}
+
+
+
+

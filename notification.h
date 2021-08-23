@@ -8,11 +8,11 @@ class Notification
 public:
     Notification();
     void notification_ajoutVisiteur();
-    void notification_ajoutPublicite();
+    void notification_ajoutEvenement();
     void notification_supprimerVisiteur();
     void notification_supprimerPublicite();
-    void notification_modifierPromotion();
-    void notification_modifierPublicite();
+    void notification_modifierVisiteur();
+    void notification_modifierEvenement();
     void mail_Publicite();
 
 

@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     connection.cpp \
+    evenement.cpp \
     main.cpp \
     mainwindow.cpp \
     notification.cpp \
@@ -24,6 +25,7 @@ SOURCES += \
 
 HEADERS += \
     connection.h \
+    evenement.h \
     mainwindow.h \
     notification.h \
     visiteur.h
