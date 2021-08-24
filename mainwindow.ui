@@ -372,6 +372,19 @@
           <string>ID evenement :</string>
          </property>
         </widget>
+        <widget class="QPushButton" name="pushButton_23">
+         <property name="geometry">
+          <rect>
+           <x>520</x>
+           <y>200</y>
+           <width>191</width>
+           <height>81</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
        </widget>
        <widget class="QWidget" name="tab_2">
         <attribute name="title">
@@ -484,7 +497,7 @@
             </rect>
            </property>
            <property name="text">
-            <string>PDF</string>
+            <string>Excel</string>
            </property>
           </widget>
           <widget class="QLabel" name="label_11">
@@ -573,6 +586,19 @@
            </property>
            <property name="text">
             <string>Décroissant</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="pushButton_24">
+           <property name="geometry">
+            <rect>
+             <x>750</x>
+             <y>372</y>
+             <width>91</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>PDF</string>
            </property>
           </widget>
          </widget>
@@ -881,7 +907,7 @@
             </rect>
            </property>
            <property name="text">
-            <string>PDF</string>
+            <string>Excel</string>
            </property>
           </widget>
           <widget class="QTableView" name="tableView_1">
@@ -989,6 +1015,19 @@
              <width>151</width>
              <height>21</height>
             </rect>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="pushButton_25">
+           <property name="geometry">
+            <rect>
+             <x>730</x>
+             <y>372</y>
+             <width>91</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>PDF</string>
            </property>
           </widget>
          </widget>

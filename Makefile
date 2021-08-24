@@ -235,6 +235,7 @@ Makefile: Visiteur-Evènement.pro ../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs
 		../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/lex.prf \
 		Visiteur-Evènement.pro \
 		../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/qtmaind.prl \
+		../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5PrintSupport.prl \
 		../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Widgets.prl \
 		../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Gui.prl \
 		../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Sql.prl \
@@ -414,6 +415,7 @@ Makefile: Visiteur-Evènement.pro ../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs
 ../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/lex.prf:
 Visiteur-Evènement.pro:
 ../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/qtmaind.prl:
+../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5PrintSupport.prl:
 ../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Widgets.prl:
 ../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Gui.prl:
 ../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Sql.prl:

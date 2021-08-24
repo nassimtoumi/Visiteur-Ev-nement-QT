@@ -70,6 +70,7 @@ public:
     QPushButton *pushButton_16;
     QLineEdit *lineEdit_ide;
     QLabel *label_8;
+    QPushButton *pushButton_23;
     QWidget *tab_2;
     QStackedWidget *stackedWidget_2;
     QWidget *page_6;
@@ -87,6 +88,7 @@ public:
     QLabel *label_9;
     QLineEdit *lineEdit_2;
     QRadioButton *radioButton_4;
+    QPushButton *pushButton_24;
     QWidget *page_7;
     QWidget *page_3;
     QGroupBox *groupBox_2;
@@ -124,6 +126,7 @@ public:
     QLineEdit *lineEdit_5;
     QLabel *label_31;
     QLineEdit *lineEdit_6;
+    QPushButton *pushButton_25;
     QWidget *page_5;
     QPushButton *pushButton_6;
     QPushButton *pushButton_5;
@@ -249,6 +252,9 @@ public:
         label_8 = new QLabel(tab);
         label_8->setObjectName(QStringLiteral("label_8"));
         label_8->setGeometry(QRect(100, 340, 101, 16));
+        pushButton_23 = new QPushButton(tab);
+        pushButton_23->setObjectName(QStringLiteral("pushButton_23"));
+        pushButton_23->setGeometry(QRect(520, 200, 191, 81));
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QStringLiteral("tab_2"));
@@ -299,6 +305,9 @@ public:
         radioButton_4 = new QRadioButton(page_6);
         radioButton_4->setObjectName(QStringLiteral("radioButton_4"));
         radioButton_4->setGeometry(QRect(760, 20, 83, 18));
+        pushButton_24 = new QPushButton(page_6);
+        pushButton_24->setObjectName(QStringLiteral("pushButton_24"));
+        pushButton_24->setGeometry(QRect(750, 372, 91, 31));
         stackedWidget_2->addWidget(page_6);
         page_7 = new QWidget();
         page_7->setObjectName(QStringLiteral("page_7"));
@@ -411,6 +420,9 @@ public:
         lineEdit_6 = new QLineEdit(page_4);
         lineEdit_6->setObjectName(QStringLiteral("lineEdit_6"));
         lineEdit_6->setGeometry(QRect(170, 20, 151, 21));
+        pushButton_25 = new QPushButton(page_4);
+        pushButton_25->setObjectName(QStringLiteral("pushButton_25"));
+        pushButton_25->setGeometry(QRect(730, 372, 91, 31));
         stackedWidget_4->addWidget(page_4);
         page_5 = new QWidget();
         page_5->setObjectName(QStringLiteral("page_5"));
@@ -494,7 +506,7 @@ public:
         stackedWidget->setCurrentIndex(1);
         tabWidget->setCurrentIndex(1);
         stackedWidget_2->setCurrentIndex(0);
-        tabWidget_2->setCurrentIndex(1);
+        tabWidget_2->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -525,6 +537,7 @@ public:
         label_7->setText(QApplication::translate("MainWindow", "Sexe :", Q_NULLPTR));
         pushButton_16->setText(QApplication::translate("MainWindow", "Ajouter ", Q_NULLPTR));
         label_8->setText(QApplication::translate("MainWindow", "ID evenement :", Q_NULLPTR));
+        pushButton_23->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Ajouter Visiteur", Q_NULLPTR));
         pushButton_17->setText(QApplication::translate("MainWindow", "Trier", Q_NULLPTR));
         radioButton_3->setText(QApplication::translate("MainWindow", "Croissant", Q_NULLPTR));
@@ -535,13 +548,14 @@ public:
          << QApplication::translate("MainWindow", "DATEVISITEUR", Q_NULLPTR)
         );
         pushButton_18->setText(QApplication::translate("MainWindow", "Modifier", Q_NULLPTR));
-        pushButton_20->setText(QApplication::translate("MainWindow", "PDF", Q_NULLPTR));
+        pushButton_20->setText(QApplication::translate("MainWindow", "Excel", Q_NULLPTR));
         label_11->setText(QApplication::translate("MainWindow", "Modifier (.......) :", Q_NULLPTR));
         label_10->setText(QApplication::translate("MainWindow", "Trier :", Q_NULLPTR));
         pushButton_19->setText(QApplication::translate("MainWindow", "Supprimer", Q_NULLPTR));
         pushButton_21->setText(QApplication::translate("MainWindow", "Statistique", Q_NULLPTR));
         label_9->setText(QApplication::translate("MainWindow", "Recherche :", Q_NULLPTR));
         radioButton_4->setText(QApplication::translate("MainWindow", "D\303\251croissant", Q_NULLPTR));
+        pushButton_24->setText(QApplication::translate("MainWindow", "PDF", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Consulter Visiteurs", Q_NULLPTR));
         groupBox_2->setTitle(QApplication::translate("MainWindow", "Gestion Ev\303\250nement", Q_NULLPTR));
         pushButton_15->setText(QString());
@@ -559,7 +573,7 @@ public:
         radioButton_10->setText(QApplication::translate("MainWindow", "D\303\251croissant", Q_NULLPTR));
         pushButton_31->setText(QApplication::translate("MainWindow", "Trier", Q_NULLPTR));
         label_30->setText(QApplication::translate("MainWindow", "Modifier (.......) :", Q_NULLPTR));
-        pushButton_33->setText(QApplication::translate("MainWindow", "PDF", Q_NULLPTR));
+        pushButton_33->setText(QApplication::translate("MainWindow", "Excel", Q_NULLPTR));
         comboBox_3->clear();
         comboBox_3->insertItems(0, QStringList()
          << QApplication::translate("MainWindow", "ID", Q_NULLPTR)
@@ -570,6 +584,7 @@ public:
         pushButton_32->setText(QApplication::translate("MainWindow", "Modifier", Q_NULLPTR));
         radioButton_9->setText(QApplication::translate("MainWindow", "Croissant", Q_NULLPTR));
         label_31->setText(QApplication::translate("MainWindow", "Trier :", Q_NULLPTR));
+        pushButton_25->setText(QApplication::translate("MainWindow", "PDF", Q_NULLPTR));
         tabWidget_2->setTabText(tabWidget_2->indexOf(tab_4), QApplication::translate("MainWindow", "Consulter Evenemet", Q_NULLPTR));
         pushButton_6->setText(QString());
         pushButton_5->setText(QString());
