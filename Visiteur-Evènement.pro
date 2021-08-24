@@ -1,5 +1,10 @@
 QT       += core gui sql
 QT += core gui printsupport
+QT += network multimedia
+QT       +=serialport
+
+QT += core gui charts
+QT += core gui network
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11

@@ -11,6 +11,10 @@
 #include <QDebug>
 #include <QtPrintSupport/QPrinter>
 #include"notification.h"
+#include <QPieSlice>
+#include <QPieSeries>
+#include <QtCharts/QChartView>
+
 Notification N;
 Visiteur V;
 Evenement E ;
@@ -770,10 +774,55 @@ void MainWindow::on_pushButton_25_clicked()
                                doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
                                doc.print(&printer);
 }
-
+//stat
+QT_CHARTS_USE_NAMESPACE
 void MainWindow::on_pushButton_21_clicked()
 {
-    ui->stackedWidget_2->setCurrentIndex(1);
+    //ui->stackedWidget_2->setCurrentIndex(1);
+    QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("select * from VISITEUR where AGE < 10 ");
+    float salaire=model->rowCount();
+    model->setQuery("select * from VISITEUR where AGE  between 10 and 50 ");
+    float salairee=model->rowCount();
+    model->setQuery("select * from VISITEUR where AGE >50 ");
+    float salaireee=model->rowCount();
+    float total=salaire+salairee+salaireee;
+    QString a=QString("moins de 10 ans . "+QString::number((salaire*100)/total,'f',2)+"%" );
+    QString b=QString("entre 10 et 50 ans .  "+QString::number((salairee*100)/total,'f',2)+"%" );
+    QString c=QString("plus de 50 ans ."+QString::number((salaireee*100)/total,'f',2)+"%" );
+    QPieSeries *series = new QPieSeries();
+    series->append(a,salaire);
+    series->append(b,salairee);
+    series->append(c,salaireee);
+    if (salaire!=0)
+    {QPieSlice *slice = series->slices().at(0);
+        slice->setLabelVisible();
+        slice->setPen(QPen());}
+    if ( salairee!=0)
+    {
+        // Add label, explode and define brush for 2nd slice
+        QPieSlice *slice1 = series->slices().at(1);
+        //slice1->setExploded();
+        slice1->setLabelVisible();
+    }
+    if(salaireee!=0)
+    {
+        // Add labels to rest of slices
+        QPieSlice *slice2 = series->slices().at(2);
+        //slice1->setExploded();
+        slice2->setLabelVisible();
+    }
+    // Create the chart widget
+    QChart *chart = new QChart();
+    // Add data to chart with title and hide legend
+    chart->addSeries(series);
+    chart->setTitle("Age Par Pourcentage des Visiteurs :Nombre Des Visiteurs "+ QString::number(total));
+    chart->legend()->hide();
+    // Used to display the chart
+    QChartView *chartView = new QChartView(chart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+    chartView->resize(1000,500);
+    chartView->show();
 }
 
 

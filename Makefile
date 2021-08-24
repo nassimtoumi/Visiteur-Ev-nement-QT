@@ -236,9 +236,13 @@ Makefile: Visiteur-Evènement.pro ../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs
 		Visiteur-Evènement.pro \
 		../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/qtmaind.prl \
 		../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5PrintSupport.prl \
+		../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Charts.prl \
 		../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Widgets.prl \
+		../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Multimedia.prl \
 		../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Gui.prl \
 		../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Sql.prl \
+		../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Network.prl \
+		../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5SerialPort.prl \
 		../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Core.prl
 	$(QMAKE) -o Makefile Visiteur-Evènement.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 ../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/spec_pre.prf:
@@ -416,9 +420,13 @@ Makefile: Visiteur-Evènement.pro ../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs
 Visiteur-Evènement.pro:
 ../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/qtmaind.prl:
 ../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5PrintSupport.prl:
+../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Charts.prl:
 ../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Widgets.prl:
+../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Multimedia.prl:
 ../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Gui.prl:
 ../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Sql.prl:
+../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Network.prl:
+../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5SerialPort.prl:
 ../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Core.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile Visiteur-Evènement.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
